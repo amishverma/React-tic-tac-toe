@@ -36,6 +36,7 @@ function App() {
       return toast("Aready fille", { type: "eroor" });
 
       checkIsWinner();
+      s;
     }
   };
   return (
