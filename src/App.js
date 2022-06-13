@@ -12,9 +12,9 @@ import "./App.css";
 // import { type } from "@testing-library/user-event/dist/type";
 
 const itemArray = new Array(9).fill("empty");
-
+console.log(itemArray)
 function App() {
-  const [isCross, setIsCross] = useState(false);
+  const [isCross, setIsCross] = useState(true);
   const [winMessage, setWinMessage] = useState("");
 
   const reloadGame = () => {
@@ -97,22 +97,22 @@ function App() {
       <Row>
         <Col md={6} className="offset-md-3">
           {winMessage ? (
-            <div className="mb-2 mt-2">
+            <div className="mb-5 mt-2">
               <h1 className="text-success text-uppercase text-center">
                 {winMessage}
               </h1>
               <Button color="success" block onClick={reloadGame}>Reload the game</Button>
             </div>
-          ):(<h1 className="text-center text-warning">
+          ):(<h1 className="text-center text-danger mb-5">
             {isCross ? "Cross" : "Circle"} turns
           </h1> )}
 
 
           <div className="grid">
             {itemArray.map((item, index) => (
-              <Card color="warning" onClick={()=>changeItem(index) }>
+              <Card color="warning"  onClick={()=>{changeItem(index)} }>
                 <CardBody className="box">
-                  <Icon name={item} />
+                  <Icon name={item} key={index}/>
                 </CardBody>
               </Card>
             ))}
